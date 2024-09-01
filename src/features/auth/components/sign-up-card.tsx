@@ -44,7 +44,7 @@ const SignUpCard = ({ setState }: SignUpCardProps) => {
     }
 
     setPending(true);
-    signIn("password", { email, password, name, flow: "signUp" })
+    signIn("password", { name, email, password, flow: "signUp" })
       .catch(() => {
         setError("Something went wrong");
       })
@@ -74,7 +74,7 @@ const SignUpCard = ({ setState }: SignUpCardProps) => {
             disabled={pending}
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Name"
+            placeholder="Full name"
             required
           />
           <Input
