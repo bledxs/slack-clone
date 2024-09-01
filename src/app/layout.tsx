@@ -28,9 +28,8 @@ export default function RootLayout({
             <JotaiProvider>
               <Toaster />
               <Modals />
+              {children}
             </JotaiProvider>
-
-            {children}
           </ConvexClientProvider>
         </body>
       </html>
