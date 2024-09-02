@@ -1,17 +1,30 @@
+import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
-import { Loader, Triangle } from "lucide-react";
+import {
+  HashIcon,
+  Loader,
+  MessageSquare,
+  SendHorizonal,
+  Triangle,
+} from "lucide-react";
+import { SideBarItem } from "./sidebar-item";
 import { WorkspaceHeader } from "./workspace-header";
+import { WorkspaceSection } from "./workspace-section";
 
-type Props = {};
-export const WorkspaceSidebar = ({}: Props) => {
+type WorkspaceSidebarProps = {};
+export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
   const workspaceId = useWorkspaceId();
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
   });
   const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({
     id: workspaceId,
+  });
+
+  const { data: channels, isLoading: channelsLoading } = useGetChannels({
+    workspaceId,
   });
 
   if (memberLoading || workspaceLoading) {
@@ -37,6 +50,20 @@ export const WorkspaceSidebar = ({}: Props) => {
         workspace={workspace}
         isAdmin={member.role === "admin"}
       />
+      <div className="flex flex-col px-2 mt-3">
+        <SideBarItem label="Threads" icon={MessageSquare} id="threads" />
+        <SideBarItem label="Drafts & Send" icon={SendHorizonal} id="drafts" />
+      </div>
+      <WorkspaceSection label="Channels" hint="New channel" onNew={() => {}}>
+        {channels?.map((channelItem) => (
+          <SideBarItem
+            key={channelItem._id}
+            label={channelItem.name}
+            icon={HashIcon}
+            id={channelItem._id}
+          />
+        ))}
+      </WorkspaceSection>
     </div>
   );
 };
