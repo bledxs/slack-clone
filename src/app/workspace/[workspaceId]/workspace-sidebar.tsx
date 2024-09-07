@@ -6,7 +6,7 @@ import {
   HashIcon,
   Loader,
   MessageSquare,
-  SendHorizonal,
+  SendHorizontal,
   Triangle,
 } from "lucide-react";
 import { SideBarItem } from "./sidebar-item";
@@ -15,9 +15,11 @@ import { WorkspaceSection } from "./workspace-section";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import { UserItem } from "./user-item";
 import { useCreateChannelModal } from "@/features/channels/store/use-create-channel-modal";
+import { useChannelId } from "@/hooks/use-channel-id";
 
 type WorkspaceSidebarProps = {};
 export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
+  const channelId = useChannelId();
   const workspaceId = useWorkspaceId();
   const [_open, setOpen] = useCreateChannelModal();
 
@@ -61,7 +63,7 @@ export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
       />
       <div className="flex flex-col px-2 mt-3">
         <SideBarItem label="Threads" icon={MessageSquare} id="threads" />
-        <SideBarItem label="Drafts & Send" icon={SendHorizonal} id="drafts" />
+        <SideBarItem label="Drafts & Send" icon={SendHorizontal} id="drafts" />
       </div>
       <WorkspaceSection
         label="Channels"
@@ -74,6 +76,7 @@ export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
             label={channelItem.name}
             icon={HashIcon}
             id={channelItem._id}
+            variant={channelId === channelItem._id ? "active" : "default"}
           />
         ))}
       </WorkspaceSection>

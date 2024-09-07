@@ -14,8 +14,8 @@ import { useCreateChannel } from "../api/use-create-channel";
 import { useCreateChannelModal } from "../store/use-create-channel-modal";
 
 export const CreateChannelModal = () => {
-  const workspaceId = useWorkspaceId();
   const router = useRouter();
+  const workspaceId = useWorkspaceId();
   const [open, setOpen] = useCreateChannelModal();
   const [name, setName] = useState("");
 
@@ -39,8 +39,11 @@ export const CreateChannelModal = () => {
       {
         onSuccess(channel) {
           toast.success("Channel created");
-          // TODO: Redirect to the new channel
+          router.push(`/workspace/${workspaceId}/channel/${channel}`);
           handleClose();
+        },
+        onError() {
+          toast.error("Failed to create channel");
         },
       }
     );
