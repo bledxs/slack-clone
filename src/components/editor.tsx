@@ -14,6 +14,7 @@ import { MdSend } from "react-icons/md";
 import { PiTextAa } from "react-icons/pi";
 import { Hint } from "./hint";
 import { Button } from "./ui/button";
+import { EmojiPopover } from "./emoji-popover";
 
 type EditorValue = {
   image: File | null;
@@ -133,6 +134,13 @@ const Editor = ({
     }
   };
 
+  const onEmojiSelect = (emoji: any) => {
+    const quill = quillRef.current;
+    if (!quill) return;
+
+    quill.insertText(quill.getSelection()?.index || 0, emoji.native);
+  };
+
   const isEmpty = text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
 
   return (
@@ -157,16 +165,11 @@ const Editor = ({
             </Button>
           </Hint>
 
-          <Hint label="Add emoji">
-            <Button
-              disabled={disabled}
-              size="iconSm"
-              variant="ghost"
-              onClick={() => console.log("clicked")}
-            >
+          <EmojiPopover onEmojiSelect={onEmojiSelect}>
+            <Button disabled={disabled} size="iconSm" variant="ghost">
               <Smile className="size-4" />
             </Button>
-          </Hint>
+          </EmojiPopover>
           {variant === "create" && (
             <Hint label="Add image">
               <Button
