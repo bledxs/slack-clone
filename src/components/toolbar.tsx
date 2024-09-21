@@ -1,7 +1,8 @@
 import { MessageSquareTextIcon, Pencil, Smile, Trash } from "lucide-react";
+
+import { Button } from "./ui/button";
 import { EmojiPopover } from "./emoji-popover";
 import { Hint } from "./hint";
-import { Button } from "./ui/button";
 
 type Props = {
   isAuthor: boolean;
@@ -34,7 +35,12 @@ export const Toolbar = ({
         </EmojiPopover>
         {!hideThreadButton && (
           <Hint label="Reply in thread">
-            <Button variant="ghost" size="iconSm" disabled={isPending}>
+            <Button
+              variant="ghost"
+              size="iconSm"
+              disabled={isPending}
+              onClick={handleDelete}
+            >
               <MessageSquareTextIcon className="size-4" />
             </Button>
           </Hint>
@@ -42,12 +48,22 @@ export const Toolbar = ({
         {isAuthor && (
           <>
             <Hint label="Edit message">
-              <Button variant="ghost" size="iconSm" disabled={isPending}>
+              <Button
+                variant="ghost"
+                size="iconSm"
+                disabled={isPending}
+                onClick={handleEdit}
+              >
                 <Pencil className="size-4" />
               </Button>
             </Hint>
             <Hint label="Delete message">
-              <Button variant="ghost" size="iconSm" disabled={isPending}>
+              <Button
+                variant="ghost"
+                size="iconSm"
+                disabled={isPending}
+                onClick={handleDelete}
+              >
                 <Trash className="size-4" />
               </Button>
             </Hint>
