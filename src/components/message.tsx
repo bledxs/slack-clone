@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Hint } from "./hint";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Thumbnail from "./thumbnail";
+import { Toolbar } from "./toolbar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 
@@ -56,6 +57,7 @@ export const Message = ({
   threadTimestamp,
 }: MessageProps) => {
   const avatarFallback = authorName.charAt(0).toUpperCase();
+  console.log("🚀 ~ isEditing:", isEditing)
 
   if (isCompact) {
     return (
@@ -107,6 +109,18 @@ export const Message = ({
           )}
         </div>
       </div>
+
+      {!isEditing && (
+        <Toolbar
+          isAuthor={isAuthor}
+          isPending={false}
+          handleEdit={() => setEditingId(id)}
+          handleThread={() => {}}
+          handleDelete={() => {}}
+          hideThreadButton={hideThreadButton}
+          handleReaction={() => {}}
+        />
+      )}
     </div>
   );
 };
