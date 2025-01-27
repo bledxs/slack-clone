@@ -1,20 +1,21 @@
-import { format, isToday, isYesterday } from 'date-fns'
-import dynamic from 'next/dynamic'
-import { toast } from 'sonner'
+import { format, isToday, isYesterday } from "date-fns";
+import dynamic from "next/dynamic";
+import { toast } from "sonner";
 
-import { useRemoveMessage } from '@/features/messages/api/use-remove-message'
-import { useUpdateMessage } from '@/features/messages/api/use-update-message'
-import { useToggleReaction } from '@/features/reactions/api/use-toggle-reaction'
-import { useConfirm } from '@/hooks/use-confirm'
-import { usePanel } from '@/hooks/use-panel'
-import { cn } from '@/lib/utils'
+import { useRemoveMessage } from "@/features/messages/api/use-remove-message";
+import { useUpdateMessage } from "@/features/messages/api/use-update-message";
+import { useToggleReaction } from "@/features/reactions/api/use-toggle-reaction";
+import { useConfirm } from "@/hooks/use-confirm";
+import { usePanel } from "@/hooks/use-panel";
+import { cn } from "@/lib/utils";
 
-import { Doc, Id } from '../../convex/_generated/dataModel'
-import { Hint } from './hint'
-import { Reactions } from './reactions'
-import Thumbnail from './thumbnail'
-import { Toolbar } from './toolbar'
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Doc, Id } from "../../convex/_generated/dataModel";
+import { Hint } from "./hint";
+import { Reactions } from "./reactions";
+import { ThreadBar } from "./thread-bar";
+import Thumbnail from "./thumbnail";
+import { Toolbar } from "./toolbar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 const Renderer = dynamic(() => import("@/components/renderer"), { ssr: false });
 const Editor = dynamic(() => import("@/components/editor"), { ssr: false });
@@ -41,6 +42,7 @@ interface MessageProps {
   hideThreadButton?: boolean;
   threadCount?: number;
   threadImage?: string;
+  threadName?: string;
   threadTimestamp?: number;
 }
 
@@ -65,6 +67,7 @@ export const Message = ({
   image,
   threadCount,
   threadImage,
+  threadName,
   threadTimestamp,
 }: MessageProps) => {
   const { parentMessageId, onOpenMessage, onCloseMessage } = usePanel();
@@ -173,6 +176,13 @@ export const Message = ({
                   </span>
                 )}
                 <Reactions data={reactions} onChange={handleReaction} />
+                <ThreadBar
+                  count={threadCount}
+                  image={threadImage}
+                  timestamp={threadTimestamp}
+                  onClick={() => onOpenMessage(id)}
+                  name={threadName}
+                />
               </div>
             )}
           </div>
@@ -242,6 +252,13 @@ export const Message = ({
                 <span className="text-sm text-muted-foreground">(edited)</span>
               )}
               <Reactions data={reactions} onChange={handleReaction} />
+              <ThreadBar
+                count={threadCount}
+                image={threadImage}
+                timestamp={threadTimestamp}
+                onClick={() => onOpenMessage(id)}
+                name={threadName}
+              />
             </div>
           )}
         </div>
