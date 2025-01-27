@@ -1,13 +1,13 @@
-import { ConvexClientProvider } from "@/components/convex-client-provider";
-import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+import "./globals.css";
 
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+import { ConvexClientProvider } from "@/components/convex-client-provider";
 import { JotaiProvider } from "@/components/jotai-providder";
 import { Modals } from "@/components/modals";
 import { Toaster } from "@/components/ui/sonner";
-import { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-
+import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
