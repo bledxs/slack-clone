@@ -1,18 +1,18 @@
+import { CopyIcon, RefreshCcw } from "lucide-react";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useNewJoinCode } from "@/features/workspaces/api/use-new-join-code";
 import { useConfirm } from "@/hooks/use-confirm";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
-import { CopyIcon, RefreshCcw } from "lucide-react";
-import { toast } from "sonner";
 
 type InviteModalProps = {
   open: boolean;

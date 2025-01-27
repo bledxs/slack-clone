@@ -8,6 +8,7 @@ import { JotaiProvider } from "@/components/jotai-providder";
 import { Modals } from "@/components/modals";
 import { Toaster } from "@/components/ui/sonner";
 import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

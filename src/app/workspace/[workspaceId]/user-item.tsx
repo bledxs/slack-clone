@@ -1,9 +1,11 @@
+import { cva, VariantProps } from "class-variance-authority";
+import Link from "next/link";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { cn } from "@/lib/utils";
-import { cva, type VariantProps } from "class-variance-authority";
-import Link from "next/link";
+
 import { Id } from "../../../../convex/_generated/dataModel";
 
 const userItemVariants = cva(

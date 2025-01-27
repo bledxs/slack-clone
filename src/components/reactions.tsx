@@ -1,11 +1,12 @@
-import { Doc, Id } from "../../convex/_generated/dataModel";
+import { MdOutlineAddReaction } from 'react-icons/md'
 
-import { EmojiPopover } from "./emoji-popover";
-import { Hint } from "./hint";
-import { MdOutlineAddReaction } from "react-icons/md";
-import { cn } from "@/lib/utils";
-import { useCurrentMember } from "@/features/members/api/use-current-member";
-import { useWorkspaceId } from "@/hooks/use-workspace-id";
+import { useCurrentMember } from '@/features/members/api/use-current-member'
+import { useWorkspaceId } from '@/hooks/use-workspace-id'
+import { cn } from '@/lib/utils'
+
+import { Doc, Id } from '../../convex/_generated/dataModel'
+import { EmojiPopover } from './emoji-popover'
+import { Hint } from './hint'
 
 type Props = {
   data: Array<

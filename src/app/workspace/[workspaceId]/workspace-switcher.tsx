@@ -1,16 +1,17 @@
+import { Loader, PlusIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useGetWorkspaces } from "@/features/workspaces/api/use-get-workspaces";
 import { useCreateWorkspaceModal } from "@/features/workspaces/store/use-create-workspace-modal";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
-import { Loader, PlusIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 type Props = {};
 export const WorkspaceSwitcher = ({}: Props) => {

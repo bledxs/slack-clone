@@ -1,3 +1,8 @@
+import { TrashIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -13,10 +18,6 @@ import { useUpdateWorkspace } from "@/features/workspaces/api/use-update-workspa
 import { useConfirm } from "@/hooks/use-confirm";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
 import { DialogTrigger } from "@radix-ui/react-dialog";
-import { TrashIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { toast } from "sonner";
 
 type PreferencesModalProps = {
   open: boolean;

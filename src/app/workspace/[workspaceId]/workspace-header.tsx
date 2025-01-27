@@ -1,3 +1,6 @@
+import { ChevronDown, ListFilterIcon, SquarePen } from "lucide-react";
+import { useState } from "react";
+
 import { Hint } from "@/components/hint";
 import { Button } from "@/components/ui/button";
 import {
@@ -7,11 +10,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu";
-import { ChevronDown, ListFilterIcon, SquarePen } from "lucide-react";
+
 import { Doc } from "../../../../convex/_generated/dataModel";
-import { PreferencesModal } from "./preferences-motal";
-import { useState } from "react";
 import { InviteModal } from "./invite-modal";
+import { PreferencesModal } from "./preferences-motal";
 
 type WorkspaceHeaderProps = {
   workspace: Doc<"workspaces">;

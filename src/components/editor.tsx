@@ -1,21 +1,18 @@
-import { cn } from "@/lib/utils";
-import { ImageIcon, Smile, XIcon } from "lucide-react";
-import Quill, { QuillOptions } from "quill";
-import { Delta, Op } from "quill/core";
-import "quill/dist/quill.snow.css";
-import {
-  MutableRefObject,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
-import { MdSend } from "react-icons/md";
-import { PiTextAa } from "react-icons/pi";
-import { Hint } from "./hint";
-import { Button } from "./ui/button";
-import { EmojiPopover } from "./emoji-popover";
-import Image from "next/image";
+import 'quill/dist/quill.snow.css'
+
+import { ImageIcon, Smile, XIcon } from 'lucide-react'
+import Image from 'next/image'
+import Quill, { QuillOptions } from 'quill'
+import { Delta, Op } from 'quill/core'
+import { MutableRefObject, useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { MdSend } from 'react-icons/md'
+import { PiTextAa } from 'react-icons/pi'
+
+import { cn } from '@/lib/utils'
+
+import { EmojiPopover } from './emoji-popover'
+import { Hint } from './hint'
+import { Button } from './ui/button'
 
 type EditorValue = {
   image: File | null;

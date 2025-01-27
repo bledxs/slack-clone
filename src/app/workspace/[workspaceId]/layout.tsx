@@ -1,15 +1,19 @@
 "use client";
 
-import { Loader } from 'lucide-react'
+import { Loader } from "lucide-react";
 
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import { Thread } from '@/features/messages/components/thread'
-import { usePanel } from '@/hooks/use-panel'
+import {
+  ResizableHandle,
+  ResizablePanel,
+  ResizablePanelGroup,
+} from "@/components/ui/resizable";
+import { Thread } from "@/features/messages/components/thread";
+import { usePanel } from "@/hooks/use-panel";
 
-import { Id } from '../../../../convex/_generated/dataModel'
-import { Sidebar } from './sidebar'
-import { Toolbar } from './toolbar'
-import { WorkspaceSidebar } from './workspace-sidebar'
+import { Id } from "../../../../convex/_generated/dataModel";
+import { Sidebar } from "./sidebar";
+import { Toolbar } from "./toolbar";
+import { WorkspaceSidebar } from "./workspace-sidebar";
 
 interface WorkspaceLayoutProps {
   children: React.ReactNode;

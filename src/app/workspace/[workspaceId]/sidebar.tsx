@@ -1,8 +1,10 @@
-import { UserButton } from "@/features/auth/components/user-button";
 import { Bell, Home, MessageSquare, MoreHorizontal } from "lucide-react";
+import { usePathname } from "next/navigation";
+
+import { UserButton } from "@/features/auth/components/user-button";
+
 import { SidebarButton } from "./sidebar-button";
 import { WorkspaceSwitcher } from "./workspace-switcher";
-import { usePathname } from "next/navigation";
 
 type Props = {};
 export const Sidebar = ({}: Props) => {

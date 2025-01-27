@@ -1,17 +1,9 @@
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import data from "@emoji-mart/data";
-import Picker from "@emoji-mart/react";
-import { useState } from "react";
+import { useState } from 'react'
+
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import data from '@emoji-mart/data'
+import Picker from '@emoji-mart/react'
 
 interface EmojiPopoverProps {
   children: React.ReactNode;

@@ -1,7 +1,8 @@
+import { InfoIcon, SearchIcon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
 import { useWorkspaceId } from "@/hooks/use-workspace-id";
-import { InfoIcon, SearchIcon } from "lucide-react";
 
 type Props = {};
 export const Toolbar = ({}: Props) => {
