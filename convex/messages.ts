@@ -213,7 +213,7 @@ export const get = query({
     const userId = await auth.getUserId(ctx);
 
     if (!userId) {
-      throw new Error("Unauthorized");
+      return null;
     }
 
     let _conversationId = args.conversationId;
