@@ -2,11 +2,8 @@
 
 import { Loader } from "lucide-react";
 
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "@/components/ui/resizable";
+import { Profile } from "@/features/members/components/profile";
 import { Thread } from "@/features/messages/components/thread";
 import { usePanel } from "@/hooks/use-panel";
 
@@ -14,7 +11,6 @@ import { Id } from "../../../../convex/_generated/dataModel";
 import { Sidebar } from "./sidebar";
 import { Toolbar } from "./toolbar";
 import { WorkspaceSidebar } from "./workspace-sidebar";
-import { Profile } from "@/features/members/components/profile";
 
 interface WorkspaceLayoutProps {
   children: React.ReactNode;
@@ -42,7 +38,7 @@ const WorkspaceLayout = ({ children }: WorkspaceLayoutProps) => {
             <WorkspaceSidebar />
           </ResizablePanel>
           <ResizableHandle withHandle />
-          <ResizablePanel defaultSize={20} minSize={20}>
+          <ResizablePanel defaultSize={80} minSize={20}>
             {children}
           </ResizablePanel>
           {showPanel && (

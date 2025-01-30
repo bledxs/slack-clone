@@ -144,11 +144,11 @@ const Editor = ({
     }
   };
 
-  const onEmojiSelect = (emoji: any) => {
+  const onEmojiSelect = (value: string) => {
     const quill = quillRef.current;
     if (!quill) return;
 
-    quill.insertText(quill.getSelection()?.index || 0, emoji.native);
+    quill.insertText(quill.getSelection()?.index || 0, value);
   };
 
   const isEmpty = !image && text.replace(/<(.|\n)*?>/g, "").trim().length === 0;
