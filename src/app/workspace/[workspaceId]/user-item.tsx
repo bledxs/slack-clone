@@ -28,12 +28,15 @@ type UserItemProps = {
   label?: string;
   image?: string;
   variant?: VariantProps<typeof userItemVariants>["variant"];
+  isSelf?: boolean;
 };
+
 export const UserItem = ({
   id,
   image,
   label = "Member",
   variant,
+  isSelf,
 }: UserItemProps) => {
   const workspaceId = useWorkspaceId();
   const avatarFallback = label.charAt(0).toUpperCase();
@@ -52,7 +55,10 @@ export const UserItem = ({
             {avatarFallback}
           </AvatarFallback>
         </Avatar>
-        <span className="text-sm truncate">{label}</span>
+        <span className="text-sm truncate flex items-center gap-1.5">
+          {label}&nbsp;
+          <small>{isSelf && "You"}</small>
+        </span>
       </Link>
     </Button>
   );

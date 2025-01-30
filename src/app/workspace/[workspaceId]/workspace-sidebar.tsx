@@ -27,6 +27,7 @@ export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
   const workspaceId = useWorkspaceId();
   const [_open, setOpen] = useCreateChannelModal();
 
+  const { data: currentMember } = useCurrentMember({ workspaceId });
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
   });
@@ -97,6 +98,7 @@ export const WorkspaceSidebar = ({}: WorkspaceSidebarProps) => {
             label={memberItem.user.name}
             image={memberItem.user.image}
             variant={memberItem._id === memberId ? "active" : "default"}
+            isSelf={memberItem._id === currentMember?._id}
           />
         ))}
       </WorkspaceSection>
